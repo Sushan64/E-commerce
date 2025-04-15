@@ -1,4 +1,9 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h1>Hello World!</h1>
+<h2 class="category-title">For Men</h2>
+<div class="scrolling-wrapper">
+{% for item in category_men %}
+{% include 'ecommerce/carousel.html' %}
+{% endfor %}
+</div>
 {% endblock %}
