@@ -4,7 +4,8 @@
 {% endblock %}
 
     <div class="card">
-    <img src="{{ item.image.url }}" class="card-img-top" alt="Product image">
+        <a href="{% url 'Product_view' slug=item.slug %}">
+    <img src="{{ item.image.url }}" class="card-img-top" alt="Product image"></a>
     <div class="card-body">
     <h5 class="fs-6 text-truncate fw-bold card-title">{{ item.name }}</h5>
     <p class="card-text text-primary fw-bold">Rs. {{ item.price }}</p>
