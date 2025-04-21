@@ -1,11 +1,11 @@
 {% load static %}
 <div id="carousel" class="relative w-full max-w-4xl mx-auto">
   <!-- Carousel wrapper -->
-  <div class="overflow-hidden relative rounded-xl" id="carousel-wrapper">
+  <div class="overflow-hidden relative rounded-lg" id="carousel-wrapper">
     <div class="flex transition-transform duration-500 ease-out" id="carousel-container">
       {% for banner in banners %}
       <div class="w-full flex-shrink-0">
-        <div class="aspect-[16/9]">
+        <div class="aspect-auto">
           <img src="{{ banner.image.url }}" class="w-full h-full object-contain" alt="Banner image">
         </div>
       </div>
