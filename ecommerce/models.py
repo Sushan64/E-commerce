@@ -5,7 +5,7 @@ from django.conf import settings
 # Create your models here.
 class Category(models.Model):
   name = models.CharField(max_length=100, unique= True)
-  parents = models.ForeignKey('Category', on_delete= models.CASCADE, null = True, blank = True, related_name ="SubCategory")
+  parents = models.ForeignKey('Category', on_delete= models.CASCADE, null = True, blank = True, related_name ="Category")
 
   def __str__(self):
     return self.name
@@ -47,7 +47,7 @@ class Review(models.Model):
     (5, '★★★★★'),
   ]
   user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-  product = models.ForeignKey(Items, on_delete=models.CASCADE)
+  product = models.ForeignKey(Items, on_delete=models.CASCADE, related_name ="review")
   rating = models.IntegerField(choices=scores)
   title = models.CharField(max_length = 100)
   comment = models.TextField()
@@ -55,3 +55,9 @@ class Review(models.Model):
 
   def __str__(self):
     return f"{self.user} - {self.product} - Ratings"
+
+
+class Banners(models.Model):
+  image= models.ImageField(upload_to="banners/")
+  def __str__(self):
+    return "Banner Uploaded"

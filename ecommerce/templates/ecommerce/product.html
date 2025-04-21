@@ -61,15 +61,13 @@
                         <h4>Customer Reviews</h4>
                         <div class="d-flex align-items-center mb-2">
                             <div class="rating-stars me-2">
+                                {% for _ in avg|time %}
                                 <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
+                                {% endfor %}
                             </div>
-                            <span class="fw-bold">4.5 out of 5</span>
+                            <span class="fw-bold">{{ avg }} out of 5</span>
                         </div>
-                        <p>Based on 128 reviews</p>
+                        <p>Based on {{ review|length }} reviews</p>
 
 {% for reviews in review %}
   <!-- Sample Review -->

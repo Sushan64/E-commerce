@@ -5,3 +5,4 @@ from . import models
 admin.site.register(models.Items)
 admin.site.register(models.Category)
 admin.site.register(models.Review)
+admin.site.register(models.Banners)

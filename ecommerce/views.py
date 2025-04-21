@@ -11,8 +11,11 @@ def home(request):
   category_cloth = models.Items.objects.filter(category = clothes)
   category_men = models.Items.objects.filter(category = men)
 
+  banners = models.Banners.objects.all()
+
   context = {
     'items': items,
+    'banners': banners,
     'category_cloth': category_cloth,
     'category_men': category_men,
   }
@@ -20,6 +23,22 @@ def home(request):
   return render(request, 'ecommerce/home.html', context)
 
 def product_view(request, slug):
+  
   product = get_object_or_404(models.Items, slug=slug)
-  review = models.Review.objects.all()
-  return render(request, 'ecommerce/product.html', {'product':product, 'review':review})
+  review = product.review.all()
+  
+  score = 0
+  for reviews in review:
+    score = reviews.rating + score
+
+  total = review.count()
+  if total:
+    avg = score / total
+  else:
+    avg = 0
+    
+  return render(request, 'ecommerce/product.html', {'product':product, 'review':review, 'avg':avg})
+
+
+def login(request):
+  return render(request, 'ecommerce/login.html')

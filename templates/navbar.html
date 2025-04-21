@@ -1,0 +1,27 @@
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center px-4 py-2">
+        <a href="{% url 'Home' %}" class="font-bold text-primary text-xl">ShopEase</a>
+        <div class="flex items-center space-x-4">
+          <button class="icon-btn" aria-label="Search" id="search-icon">
+            <i class="bi bi-search text-xl"></i>
+          </button>
+          <button class="icon-btn" aria-label="Cart">
+            <i class="bi bi-cart-fill text-xl"></i>
+          </button>
+          <a href="{% url 'Login' %}">
+            <button class="icon-btn" aria-label="Profile">
+              <i class="bi bi-person-circle text-xl"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="search-bar-container" class="container mx-auto hidden justify-center mt-3 px-4">
+      <div class="w-full md:w-3/4 lg:w-1/2 flex">
+        <input type="text" id="search-input" class="flex-1 border border-gray-300 rounded-l-md px-4 py-2 focus:outline-none" placeholder="Search products...">
+        <button class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-r-md" type="button" id="search-toggle-btn">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
