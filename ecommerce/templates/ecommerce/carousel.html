@@ -4,12 +4,12 @@
 <link rel="stylesheet" href="{% static 'ecommerce/style.css' %}">
 {% endblock %}
 
-<div class="group relative w-[200px] bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+<div class="group relative w-[200px] bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 mx-3 my-2">
     <a href="{% url 'Product_view' slug=item.slug %}" class="block overflow-hidden rounded-t-lg">
         <img src="{{ item.image.url }}" class="w-full h-32 object-cover transform transition-transform duration-300 group-hover:scale-105" alt="Product image">
     </a>
     <div class="p-4">
-        <h5 class="text-sm font-bold text-gray-800 truncate mb-2">{{ item.name }}</h5>
+        <h5 class="text-sm font-bold text-gray-800 line-clamp-2 h-10 mb-2">{{ item.name }}</h5>
         <p class="text-primary-600 font-bold">Rs. {{ item.price }}</p>
     </div>
 </div>
