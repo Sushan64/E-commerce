@@ -1,13 +1,15 @@
+
 {% load static %}
 {% block static %}
 <link rel="stylesheet" href="{% static 'ecommerce/style.css' %}">
 {% endblock %}
 
-    <div class="card">
-        <a href="{% url 'Product_view' slug=item.slug %}">
-    <img src="{{ item.image.url }}" class="card-img-top" alt="Product image"></a>
-    <div class="card-body">
-    <h5 class="fs-6 text-truncate fw-bold card-title">{{ item.name }}</h5>
-    <p class="card-text text-primary fw-bold">Rs. {{ item.price }}</p>
+<div class="group relative w-[200px] bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+    <a href="{% url 'Product_view' slug=item.slug %}" class="block overflow-hidden rounded-t-lg">
+        <img src="{{ item.image.url }}" class="w-full h-32 object-cover transform transition-transform duration-300 group-hover:scale-105" alt="Product image">
+    </a>
+    <div class="p-4">
+        <h5 class="text-sm font-bold text-gray-800 truncate mb-2">{{ item.name }}</h5>
+        <p class="text-primary-600 font-bold">Rs. {{ item.price }}</p>
     </div>
-   </div>
+</div>
