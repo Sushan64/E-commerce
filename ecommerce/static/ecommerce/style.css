@@ -1,10 +1,7 @@
 .scrolling-wrapper {
             display: flex;
-            height: 255px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
+            flex-wrap: wrap;
+            gap: 1rem;
             padding: 1rem 0;
         }
         
