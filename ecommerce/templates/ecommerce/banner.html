@@ -1,7 +1,7 @@
 {% load static %}
 <div id="carousel" class="relative w-full max-w-4xl mx-auto">
   <!-- Carousel wrapper -->
-  <div class="overflow-hidden relative rounded-xl h-[400px]" id="carousel-wrapper">
+  <div class="overflow-hidden relative rounded-xl h-[150px]" id="carousel-wrapper">
     <div class="flex transition-transform duration-500 ease-out h-full" id="carousel-container">
       {% for banner in banners %}
       <div class="w-full flex-shrink-0">
@@ -14,7 +14,7 @@
   <!-- Indicators -->
   <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
     {% for banner in banners %}
-    <button class="w-3 h-3 rounded-full bg-white transition-opacity duration-300 opacity-100" data-carousel-indicator></button>
+    <button class="w-1 h-1 rounded-full bg-white transition-opacity duration-300 opacity-100" data-carousel-indicator></button>
     {% endfor %}
     
   </div>
