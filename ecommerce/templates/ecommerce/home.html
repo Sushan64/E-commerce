@@ -2,7 +2,7 @@
 {% block content %}
 {% include 'ecommerce/banner.html' %}
 <h2 class="category-title mt-3">For Men</h2>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+<div class="scrolling-wrapper">
 {% for item in category_men %}
 {% include 'ecommerce/carousel.html' %}
 {% endfor %}
