@@ -41,3 +41,6 @@ def product_view(request, slug):
 
 def login(request):
   return render(request, 'ecommerce/login.html')
+
+def signup(request):
+  return render(request, 'ecommerce/signup.html')
