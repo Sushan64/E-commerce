@@ -2,7 +2,7 @@
 {% block content %}
 {% include 'ecommerce/banner.html' %}
 <h2 class="category-title mt-3">For Men</h2>
-<div class="scrolling-wrapper">
+<div class="overflow-auto whitespace-nowrap">
 {% for item in category_men %}
 {% include 'ecommerce/carousel.html' %}
 {% endfor %}

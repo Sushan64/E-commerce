@@ -4,12 +4,11 @@ from . import models
 # Create your views here.
 def home(request):
   
-  men = models.Category.objects.get(name="Men")
-  clothes = models.Category.objects.get(name="Clothes")
+  category = models.Category.objects.all()
   
-  items = models.Items.objects.all()
-  category_cloth = models.Items.objects.filter(category = clothes)
-  category_men = models.Items.objects.filter(category = men)
+  items = models.Items.objects.all().order_by('-id')
+  category_cloth = models.Items.objects.filter(category = category.get(name = "Clothes")).order_by('-id')
+  category_men = models.Items.objects.filter(category = category.get(name = "Men")).order_by('-id')
 
   banners = models.Banners.objects.all()
 
