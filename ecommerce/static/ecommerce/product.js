@@ -17,24 +17,41 @@ increase.addEventListener('click', () => {
 });
 
 // Tab switching
-function switchTab(tabId) {
-  // Hide all tabs
-  document.querySelectorAll('.tab-content > div').forEach(tab => {
-    tab.classList.add('hidden');
-    tab.classList.remove('block');
-  });
-  
-  // Show selected tab
-  const selectedTab = document.getElementById(tabId);
-  selectedTab.classList.remove('hidden');
-  selectedTab.classList.add('block');
-  
-  // Update tab buttons
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-    btn.classList.add('text-gray-500');
-  });
-  
-  document.getElementById(`${tabId}-tab`).classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
-  document.getElementById(`${tabId}-tab`).classList.remove('text-gray-500');
-}
+document.addEventListener('DOMContentLoaded', function() {
+      const tabLinks = document.querySelectorAll('.tablinks');
+      const tabContents = document.querySelectorAll('.tabcontent');
+
+      function openItem(itemName, clickedButton) {
+        tabContents.forEach(function(content) {
+          content.classList.add('hidden');
+        });
+
+        tabLinks.forEach(function(link) {
+          link.classList.remove('border-blue-500', 'text-blue-500');
+          link.classList.add('text-gray-600', 'border-transparent');
+        });
+
+        const targetContent = document.getElementById(itemName);
+        if (targetContent) {
+          targetContent.classList.remove('hidden');
+        }
+
+        if (clickedButton) {
+          clickedButton.classList.remove('text-gray-600', 'border-transparent');
+          clickedButton.classList.add('border-blue-500', 'text-blue-500');
+        }
+      }
+
+      tabLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          const itemName = this.getAttribute('data-item');
+          openItem(itemName, this);
+        });
+      });
+
+      // Trigger the first tab on load
+      if (tabLinks.length > 0) {
+        const firstCity = tabLinks[0].getAttribute('data-item');
+        openItem(firstCity, tabLinks[0]);
+      }
+    });
